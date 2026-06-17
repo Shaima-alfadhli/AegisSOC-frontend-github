@@ -1,0 +1,36 @@
+{
+  "name": "aegissoc-web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -H 127.0.0.1",
+    "build": "next build --webpack",
+    "build:pages": "GITHUB_PAGES=true NEXT_PUBLIC_BASE_PATH=/AegisSOC-frontend next build --webpack",
+    "prepare:standalone": "node scripts/prepare-standalone.mjs",
+    "postbuild": "npm run prepare:standalone",
+    "start": "node .next/standalone/server.js",
+    "start:local": "npm run build && npm run start",
+    "lint": "eslint",
+    "docker:build": "docker build -t aegissoc-frontend .",
+    "docker:run": "docker run --rm -p 3000:3000 aegissoc-frontend"
+  },
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "lucide-react": "^1.16.0",
+    "next": "^16.2.6",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "recharts": "^3.8.1",
+    "tailwind-merge": "^3.6.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.2.6",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}
