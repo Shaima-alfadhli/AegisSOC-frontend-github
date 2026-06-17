@@ -5,7 +5,7 @@ import { fileURLToPath } from "url";
 const frontendRoot = path.dirname(fileURLToPath(import.meta.url));
 
 const isGitHubPages = process.env.GITHUB_PAGES === "true";
-const basePath = isGitHubPages ? "/AegisSOC-frontend" : "";
+const basePath = isGitHubPages ? (process.env.NEXT_PUBLIC_BASE_PATH ?? "") : "";
 
 const backendUrl =
   process.env.BACKEND_URL ?? process.env.NEXT_PUBLIC_API_BASE_URL ?? "";
