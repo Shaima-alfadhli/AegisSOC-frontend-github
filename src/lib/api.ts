@@ -96,16 +96,14 @@ export async function pingBackend(): Promise<import("@/lib/api.types").ApiStatus
 }
 
 export const api = {
-  status: () => getJson<import("@/lib/api.types").ApiStatus>("/api/status"),
+  status: () => getJson<import("@/lib/api.types").ApiStatus>("/incidents"),
   metrics: () =>
-    getJson<import("@/lib/api.types").DashboardMetrics>("/api/dashboard/metrics"),
+    getJson<import("@/lib/api.types").DashboardMetrics>("/incidents"),
   threatActivity: () =>
-    getJson<import("@/lib/api.types").ThreatActivityPoint[]>(
-      "/api/dashboard/threat-activity"
-    ),
-  incidents: () => getJson<import("@/lib/api.types").Incident[]>("/api/incidents"),
+    getJson<import("@/lib/api.types").ThreatActivityPoint[]>("/incidents"),
+  incidents: () => getJson<import("@/lib/api.types").Incident[]>("/incidents"),
   activity: () =>
-    getJson<import("@/lib/api.types").ActivityItem[]>("/api/activity"),
+    getJson<import("@/lib/api.types").ActivityItem[]>("/cases"),
   aiGovernanceMetrics: () =>
     getJson<AiGovernanceMetrics>("/api/ai-governance/metrics"),
   aiGovernanceEvents: () =>
